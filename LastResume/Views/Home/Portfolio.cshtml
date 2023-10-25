@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProjectDetails> 
+<section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2 class="sTitle">Portfolio</h2>
+            <p>Only public sharepoint projects are listed</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".filter-app">Sharepoint & .NET</li>
+                   
+                </ul>
+            </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+            @foreach (var item in Model)
+            {
+                string filter ;
+                int id = 1;
+                if(item.Category.ToLower().Contains("sharepoint"))
+                {
+                    id = 2;
+                    filter="filter-app";
+                }
+                else
+                    filter = "filter-web";
+                <div class="col-lg-4 col-md-6 portfolio-item @filter">
+                    <div class="portfolio-wrap">
+                        <img width="450" height="225" src="@item.ImgURL" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>@item.ProjectName</h4>
+
+                            <div class="portfolio-links">
+                                <a href="@item.ImgURL" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"></a>
+                                <a asp-controller="Home" asp-action="PortfolioDetails" asp-route-id=@item.ProjectId class="portfolio-details-lightbox bx bx-link" data-glightbox="type: external" title="Portfolio Details"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+   
+ 
+        </div>
+
+    </div>
+</section><!-- End Portfolio Section -->

@@ -1,0 +1,48 @@
+﻿@using LastResume.Entity.Models;
+
+@model List<BlogCard>
+ 
+
+<link href="~/css/blog.css" rel="stylesheet" />
+<div class="container bootstrap snippets bootdey">
+    <hr>
+    <ol class="breadcrumb">
+        <li><a href="#">Page name</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Blog</a></li>
+        <li class="pull-right">
+            <a href="" class="text-muted">
+                <i class="fa fa-refresh"></i>
+            </a>
+        </li>
+    </ol>
+    <div class="row">
+           @foreach (var item in Model)
+            {
+            <div class="col-xs-12  ">
+                <div class="well blog">
+
+                    <a asp-controller="Blog" asp-action="BlogDetail" asp-route-id=@item.Id>
+                        <div class="date primary">
+                            <span class="blog-date">Oct</span>
+                            <span class="blog-number">8</span>
+                        </div>
+                        <div class="row">
+                          
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                <div class="blog-details">
+                                    <h2>@item.BlogTitle</h2>
+                                    <p>
+                                        @item.BlogShortDesc
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+       
+      
+    </div>
+</div>   

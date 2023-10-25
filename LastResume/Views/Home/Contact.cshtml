@@ -1,0 +1,86 @@
+﻿@model Mail
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+ 
+        <div class="row mt-5">
+
+            <div class="col-lg-4">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>Istanbul, Küçükçekmece</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <a href="mailto://mhmtklck7201@gmail.com">mhmtklck7201@gmail.com</a>
+                    </div>
+                    <div class="linkedin">
+                        <a href="https://www.linkedin.com/in/mehmet-kal%C3%A7%C4%B1k-351262138/" target="_blank">
+                            <i class="bi bi-linkedin" style="color:blue"></i>
+                            <h4>Linkedin</h4>
+                        </a>
+                        
+                       
+                    
+                       
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0">
+                @if (!ViewBag.ISSuccess)
+                {
+                    @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                    {
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                              
+                                <input asp-for="MailUserName" type="text" class="form-control" placeholder="Your Name">
+                                <span asp-validation-for="MailUserName" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                
+                                <input type="email" asp-for="MailFrom" class="form-control" placeholder="Your Email">
+                                <span asp-validation-for="MailFrom" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                          
+                            <input type="text" asp-for="MailSubject" class="form-control" placeholder="Subject">
+                            <span asp-validation-for="MailSubject" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mt-3">
+                            
+                            <textarea class="form-control" asp-for="MailMessage" rows="5" placeholder="Message"></textarea>
+                            <span asp-validation-for="MailMessage" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center"><button class="btn btn-success" type="submit">Send Message</button></div>
+                    }
+                }
+                else
+                {
+                    <div class="my-3">
+                       
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                }
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->

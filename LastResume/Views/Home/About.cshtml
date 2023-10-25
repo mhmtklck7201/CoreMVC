@@ -1,0 +1,124 @@
+﻿@model Person
+
+<section id="about" class="about">
+    <div class="container1" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2 class="sTitle">About Me</h2>
+        
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-3">
+              
+                <img width="380" height="250" src="~/img/ben.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content ">
+                <h3>Sharepoint Developer & Software Developer</h3>
+               
+                <div class="row">
+                    <div class="col-lg-5">
+                        <ul>
+                            <li><i class="bi bi-rounded-right"></i> <strong>Name: </strong> @Model.FirstName @Model.LastName</li>
+                            <li><i class="bi bi-rounded-right"></i> <strong>Age: </strong> @Model.Age</li>
+                            <li><i class="bi bi-rounded-right"></i> <strong>Whatsapp: </strong>
+                                <a href="https://api.whatsapp.com/send?phone=@Model.Phone" target="_blank">Send Message</a>
+                               
+                            </li>
+                            <li><i class="bi bi-rounded-right"></i> <strong>Address:</strong>@Model.Address</li>
+                           
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li><i class="bi bi-rounded-right"></i> <strong>University:</strong> @Model.EduUniversity</li>
+                            <li><i class="bi bi-rounded-right"></i> <strong>University Term:</strong>@Model.startEducation - @Model.endEducation</li>
+         
+                        </ul>
+                    </div>
+                    <div class="col-lg-2">
+                         
+                    </div>
+                </div>
+                <p>
+                        </p>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Skills</h2>
+            <p>The technologies I work on are as follows, along with their ratios in the projects I use.</p>
+        </div>
+
+        <div class="row skills-content">
+
+            @{
+                int count = 1;
+            }
+            @foreach (var item in Model.Skills)
+            {
+
+                if (count % 6 == 0)
+                {
+                    <div class="col-lg-6">
+                        <div class="progress">
+                            <span class="skill"> @item.SkillName<i class="val">@item.SkillAvarage%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow='@item.SkillAvarage' aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                { 
+                <div class="col-lg-6">
+                    <div class="progress">
+                        <span class="skill"> @item.SkillName<i class="val">@item.SkillAvarage%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow='@item.SkillAvarage' aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                }
+                count++;
+         
+            }
+        </div>
+    </div>
+</section><!-- End Skills Section -->
+<!-- ======= Facts Section ======= -->
+<section id="facts" class="facts">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Facts</h2>
+           
+        </div>
+
+        <div class="row counters">
+
+            <div class="col-lg-6 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Clients</p>
+            </div>
+
+            <div class="col-lg-6 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Projects</p>
+            </div>
+
+     
+
+        </div>
+
+    </div>
+</section><!-- End Facts Section -->
+<!-- ======= Testimonials Section ======= -->
+

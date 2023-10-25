@@ -1,0 +1,42 @@
+﻿@using LastResume.Entity.Models;
+@model List<BlogCard>
+
+@if (Model != null)
+{
+    <div class=" blogs">
+        <table>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+
+                    <td>
+                        <u>
+                        <a target="_blank" href=@item.BlogLink>
+
+      
+                            @if (String.IsNullOrEmpty(item.BlogTitle))
+                            {
+                                item.BlogTitle = "Başlık boş";
+                            }
+                            @item.BlogTitle
+                            </a>
+                        </u>
+                    </td>
+                   
+                    <td>
+                        @Html.ActionLink("Sil","DeleteBlog","Account",new {id=item.Id} ,new {  @class = "btnOther" })
+                    </td>
+                    <td>  @Html.ActionLink("Güncelle","UpdateBlog","Account",new {id=item.Id}, new {  @class = "btnOther" }) </td>
+                </tr>
+
+
+            }
+
+        </table>
+    </div>
+}
+else
+{
+    <div>Model Boş</div>
+}

@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Mehmet Kalçık CV</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/img/favicon.png" rel="icon">
+    <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+   
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+    <!-- Vendor CSS Files -->
+    <link href="~/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Template Main CSS File -->
+    <link href="~/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Kelly
+    * Updated: Jul 27 2023 with Bootstrap v5.3.1
+    * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+ 
+            <ul class="navbar   order-lg-0 navbar-right">
+                <li>  @await Component.InvokeAsync("ChangeLanguage")</li>
+
+            </ul>
+          
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="~/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+               
+                <ul>
+                    <li><a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Index">  @_localization.Getkey("Home").Value</a></li>
+                    <li><a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="About">  @_localization.Getkey("About").Value</a></li>
+                    <li>
+                        <a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Resume">  @_localization.Getkey("Resume").Value</a>
+                    </li>
+                    <li><a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Services">  @_localization.Getkey("Experiences").Value</a></li>
+                    <li><a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Portfolio">  @_localization.Getkey("Portfolio").Value</a></li>
+                    <li><a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Contact">  @_localization.Getkey("Contact").Value</a></li>
+                    <li><a class="nav-link text-dark " asp-area="" asp-controller="Blog" asp-action="GetBlogs">  @_localization.Getkey("Blog").Value</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+            <div class="header-social-links">
+            
+                <a href="https://www.facebook.com/mhmtklck/" class="facebook"><i class="bi bi-facebook"></i></a>
+                
+                <a href="https://www.linkedin.com/in/mehmet-kal%C3%A7%C4%B1k-351262138/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+            </div>
+
+        </div>
+
+    </header><!-- End Header -->
+   
+   
+            @RenderBody()
+
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/vendor/aos/aos.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="~/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/js/main.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

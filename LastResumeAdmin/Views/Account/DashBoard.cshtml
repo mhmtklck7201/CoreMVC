@@ -1,0 +1,94 @@
+﻿@using LastResume.Entity.Models;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+@model BlogCard
+<link href="~/css/dashboard.css" rel="stylesheet">
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var loggedInUser = await UserManager.GetUserAsync(User);
+    <div class="userTitle">
+        <a href="@Url.Action("Logout", "Account")" title="Widget View" style="color:yellow">
+            <img width="50" height="50" src="@Url.Content("~/images/profile.png" )">
+            @loggedInUser.FirstName @loggedInUser.LastName
+        </a> 
+
+     
+   </div>
+}
+<div class="containerDashBoard">
+
+    <div class="labels">
+        <h3 class="input-tab">Blog Ekle</h3>
+    </div>
+    <form id="survey-form" asp-controller="Account" asp-action="DashBoard" method="post">
+
+        <div class="labels">
+            <label asp-for="BlogTitle" id="name-label" for="name">* Blog Başlığı</label>
+            <span asp-validation-for="BlogTitle" class="text-danger"></span>
+        </div>
+        <div class="input-tab">
+            @Html.TextBoxFor(m => m.BlogTitle, new {  @class = "input-field" })
+        </div>
+
+        <div class="labels">
+            <label asp-for="BlogShortDesc" id="email-label" for="email">* Uzun Başlık</label>
+            <span asp-validation-for="BlogShortDesc" class="text-danger"></span>
+        </div>
+        <div class="input-tab">
+            @Html.TextBoxFor(m => m.BlogShortDesc, new {  @class = "input-field" })
+        </div>
+
+
+        <div class="labels">
+            <label asp-for="BlogLongDesc" id="blog-label" for="blog">* Blog Yazısı</label>
+            <span asp-validation-for="BlogLongDesc" class="text-danger"></span>
+        </div>
+        <div class="input-tab">
+            @Html.TextAreaFor(m => m.BlogLongDesc, new {  @class = "input-field" })
+        </div>
+
+
+
+        <div class="labels">
+            <label asp-for="BlogLink" id="BlogLink-label" for="BlogLink">* Blog Linki</label>
+        </div>
+        <div class="input-tab">
+            @Html.TextBoxFor(m => m.BlogLink, new {  @class = "input-field" })
+        </div>
+
+
+        <div class="labels">
+            <label asp-for="BlogKeyWords" for="BlogKeyWords">Blog Anahtar Kelimeler</label>
+        </div>
+        <div class="input-tab">
+            @Html.TextAreaFor(m => m.BlogKeyWords, new {  @class = "input-field" })
+
+        </div>
+
+        <div class="btn">
+            <button id="submit" type="submit">Blog Oluştur</button>
+        </div>
+
+
+
+    </form>
+    @await Component.InvokeAsync("AllBlogs")
+</div>
+
+<footer>
+    <div class="contact">
+        <a href="https://github.com/linh4" target="_blank">
+            <span class="icon"><i class="fa fa-github"></i></span>
+        </a>
+        <a href="https://codepen.io/linh4/" target="_blank">
+            <span class="icon"><i class="fa fa-codepen"></i></span>
+        </a>
+        <a href="https://www.freecodecamp.org/linh4" target="_blank">
+            <span class="icon"><i class="fa fa-free-code-camp"></i></span>
+        </a>
+    </div>
+    <p>&copy 2023 Mehmet Kalçık</a></p>
+</footer>
+

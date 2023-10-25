@@ -1,0 +1,70 @@
+﻿@model ProjectDetails
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4">
+
+                <div class="portfolio-info">
+                    <h3>Project information</h3>
+                    <div class="row">
+                        <div class="col">
+                            <strong>Category</strong>
+                        </div>
+                        <div class="col">
+                            @Model.Category
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+
+                            <strong>Client</strong>
+                        </div>
+                        <div class="col">
+                            @Model.Client
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+
+                            <strong>Project date</strong>
+                        </div>
+                        <div class="col">
+                            @Model.ProjectDate
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+
+                            <strong>Project URL</strong>
+                        </div>
+                        <div class="col">
+                            <a href="@Model.ProjectURL">@Model.ProjectURL</a>
+                        </div>
+                    </div>
+                    
+                    
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-8">
+
+                <div class="portfolio-description">
+                    <h2>Project Detail</h2>
+                    <p>
+                        @Model.ProjectDetail
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Details Section -->

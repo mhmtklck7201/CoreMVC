@@ -1,0 +1,70 @@
+﻿@using LastResume.Entity.Models;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+@model BlogCard
+<link href="~/css/dashboard.css" rel="stylesheet">
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var loggedInUser = await UserManager.GetUserAsync(User);
+    <div class="userTitle"><span class="glyphicon glyphicon-user"></span> @loggedInUser.FirstName @loggedInUser.LastName</div>
+}
+<div class="containerDashBoard">
+
+    <div class="labels">
+        <h3 class="input-tab">Blog Güncelle</h3>
+    </div>
+    <form id="survey-form" asp-controller="Account" asp-action="UpdateBlog" method="post">
+
+        <div class="labels">
+            <label asp-for="BlogTitle" id="name-label" for="name">* Blog Başlığı</label>
+            <span asp-validation-for="BlogTitle" class="text-danger"></span>
+        </div>
+        <div class="input-tab">
+            @Html.TextBoxFor(m => m.BlogTitle, new { @Value=Model.BlogTitle,  @class = "input-field" })
+        </div>
+
+        <div class="labels">
+            <label asp-for="BlogShortDesc" id="email-label" for="email">* Uzun Başlık</label>
+            <span asp-validation-for="BlogShortDesc" class="text-danger"></span>
+        </div>
+        <div class="input-tab">
+            @Html.TextBoxFor(m => m.BlogShortDesc, new { @Value=Model.BlogShortDesc, @class = "input-field" })
+        </div>
+
+
+        <div class="labels">
+            <label asp-for="BlogLongDesc" id="blog-label" for="blog">* Blog Yazısı</label>
+            <span asp-validation-for="BlogLongDesc" class="text-danger"></span>
+        </div>
+        <div class="input-tab">
+            @Html.TextAreaFor(m => m.BlogLongDesc, new { @Value=Model.BlogLongDesc,  @class = "input-field" })
+        </div>
+
+
+
+        <div class="labels">
+            <label asp-for="BlogLink" id="BlogLink-label" for="BlogLink">* Blog Linki</label>
+        </div>
+        <div class="input-tab">
+            @Html.TextBoxFor(m => m.BlogLink, new { @Value=Model.BlogLink,  @class = "input-field" })
+        </div>
+
+
+        <div class="labels">
+            <label asp-for="BlogKeyWords" for="BlogKeyWords">Blog Anahtar Kelimeler</label>
+        </div>
+        <div class="input-tab">
+            @Html.TextAreaFor(m => m.BlogKeyWords, new {@Value=Model.BlogKeyWords,   @class = "input-field" })
+
+        </div>
+
+        <div class="btn">
+            <button id="submit" type="submit">Blog Güncelle</button>    @Html.ActionLink("Admin Sayfasına Dön","DashBoard","Account",null , new {  @class = "btnUpdate" })
+        </div>
+     
+
+
+    </form>
+</div>
